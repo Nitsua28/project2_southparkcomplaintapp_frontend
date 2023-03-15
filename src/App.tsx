@@ -1,11 +1,19 @@
 import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { UnregisteredPage } from './pages/unregistered-page';
 
 
 function App() {
   return (
-    <div className="App">
-     
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<UnregisteredPage/>}/>
+        </Routes>
+      </BrowserRouter>
+    </>
+      
+    
   );
 }
 

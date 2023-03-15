@@ -1,0 +1,84 @@
+.unregister-page-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "unregister-page-report-complaint-container unregistered-page-meetings-container unregistered-page-login-container";
+  }
+  
+  .unregister-page-report-complaint-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . ."
+      "unregister-page-report-complaint-button-container unregister-page-report-complaint-button-container unregister-page-report-complaint-button-container"
+      ". . .";
+    grid-area: unregister-page-report-complaint-container;
+  }
+  
+  .unregister-page-report-complaint-button-container { grid-area: unregister-page-report-complaint-button-container; }
+  
+  .unregistered-page-meetings-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . ."
+      "unregistered-page-meetings-list-container unregistered-page-meetings-list-container unregistered-page-meetings-list-container"
+      ". . .";
+    grid-area: unregistered-page-meetings-container;
+  }
+  
+  .unregistered-page-meetings-list-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "unregistered-page-meetings-list-header-container unregistered-page-meetings-list-header-container unregistered-page-meetings-list-header-container"
+      "unregistered-page-meetings-list-list-container unregistered-page-meetings-list-list-container unregistered-page-meetings-list-list-container"
+      "unregistered-page-meetings-list-list-container unregistered-page-meetings-list-list-container unregistered-page-meetings-list-list-container";
+    grid-area: unregistered-page-meetings-list-container;
+  }
+  
+  .unregistered-page-meetings-list-header-container { grid-area: unregistered-page-meetings-list-header-container; }
+  
+  .unregistered-page-meetings-list-list-container { grid-area: unregistered-page-meetings-list-list-container; }
+  
+  .unregistered-page-login-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . ."
+      "unregistered-page-login-box-container unregistered-page-login-box-container unregistered-page-login-box-container"
+      ". . .";
+    grid-area: unregistered-page-login-container;
+  }
+  
+  .unregistered-page-login-box-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "unregistered-page-login-header-container unregistered-page-login-header-container unregistered-page-login-header-container"
+      "unregistered-page-login-username-container unregistered-page-login-username-container unregistered-page-login-username-container"
+      "unregistered-page-login-password-container unregistered-page-login-password-container unregistered-page-login-password-container"
+      "unregistered-page-login-button-container unregistered-page-login-button-container unregistered-page-login-button-container";
+    grid-area: unregistered-page-login-box-container;
+  }
+  
+  .unregistered-page-login-header-container { grid-area: unregistered-page-login-header-container; }
+  
+  .unregistered-page-login-username-container { grid-area: unregistered-page-login-username-container; }
+  
+  .unregistered-page-login-password-container { grid-area: unregistered-page-login-password-container; }
+  
+  .unregistered-page-login-button-container { grid-area: unregistered-page-login-button-container; }
+  
