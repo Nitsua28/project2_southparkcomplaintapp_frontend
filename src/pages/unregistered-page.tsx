@@ -1,4 +1,6 @@
 import React from "react"
+import { Link } from "react-router-dom"
+import { MeetingList } from "../components/meeting-list"
 import "../stylesheets/unregistered-page-style.css"
 
 export function UnregisteredPage(){
@@ -6,7 +8,7 @@ export function UnregisteredPage(){
         <div className="unregister-page-container">
             <div className="unregister-page-report-complaint-container">
                 <div className="unregister-page-report-complaint-button-container">
-                    <button>Report Complaint</button>
+                    <button><Link to="/reportComplaint">Report Complaint</Link></button>
                 </div>
             </div>
             <div className="unregistered-page-meetings-container">
@@ -14,7 +16,9 @@ export function UnregisteredPage(){
                     <div className="unregistered-page-meetings-list-header-container">
                         <h1>Meetings</h1>
                     </div>
-                    <div className="unregistered-page-meetings-list-list-container"></div>
+                    <div className="unregistered-page-meetings-list-list-container">
+                        <MeetingList/>
+                    </div>
                  </div>
             </div>
             <div className="unregistered-page-login-container">

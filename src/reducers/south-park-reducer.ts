@@ -45,32 +45,22 @@ export type RequestGetAllMeetings = {type: "REQUEST_GET_ALL_MEETINGS"}
 export type RequestEditMeeting = {type: "REQUEST_EDIT_MEETING", payload:MeetingFormState}
 export type RequestDeleteMeeting = {type: "REQUEST_DELETE_MEETING", payload: string}
 
-//export type SouthParkActions = AppendList | RefreshList | DeleteEmployee | EditEmployee | RequestCreateEmployee | RequestGetAllEmployees | RequestEditEmployee | RequestDeleteEmployee
+export type SouthParkActions = AppendUserList | EditUser | RefreshUserList | DeleteUser |
+AppendComplaintList | EditComplaint | RefreshComplaintList | DeleteComplaint |
+AppendMeetingList | EditMeeting | RefreshMeetingList | DeleteMeeting | 
+RequestCreateUser | RequestGetAllUsers | RequestEditUser | RequestDeleteUser |
+RequestCreateComplaint | RequestGetAllComplaints | RequestEditComplaint | RequestDeleteComplaint |
+RequestCreateMeeting | RequestGetAllMeetings | RequestEditMeeting | RequestDeleteMeeting
 
-export default function SouthParkReducer(state: SouthParkState = initialState, action: EmployeeActions):SouthParkState{
+export default function SouthParkReducer(state: SouthParkState = initialState, action: SouthParkActions):SouthParkState{
 
-const nextState: EmployeeState = JSON.parse(JSON.stringify(state));
+const nextState: SouthParkState = JSON.parse(JSON.stringify(state));
 switch(action.type){
-    case "APPEND_LIST":{
-        nextState.list.push(action.payload);
+    
+    case "REFRESH_MEETING_LIST":{
+        nextState.meetingList = action.payload;
         return nextState
     }
-    case "REFRESH_LIST":{
-        nextState.list = action.payload;
-        return nextState
-    }
-    case "EDIT_EMPLOYEE":{
-        let filteredList: EmployeeFormState[] = nextState.list.filter((item)=>item.id !== action.payload.id);
-        filteredList.push(action.payload)
-        nextState.list = filteredList
-        return nextState
-    }
-    case "DELETE_EMPLOYEE":{
-        let filteredList: EmployeeFormState[] = nextState.list.filter((item)=>item.id !== action.payload);
-        nextState.list = filteredList
-        return nextState
-    }
-
     default:{
         return nextState
     }

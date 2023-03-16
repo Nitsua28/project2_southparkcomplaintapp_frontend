@@ -1,0 +1,30 @@
+.report-complaint-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". report-complaint-column-container .";
+  }
+  
+  .report-complaint-column-container {  display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "report-complaint-header-container"
+      "report-complaint-title-container"
+      "report-complaint-report-complaint-description-container"
+      "report-complaint-report-button-container";
+    grid-area: report-complaint-column-container;
+  }
+  
+  .report-complaint-header-container { grid-area: report-complaint-header-container; }
+  
+  .report-complaint-title-container { grid-area: report-complaint-title-container; }
+  
+  .report-complaint-report-complaint-description-container { grid-area: report-complaint-report-complaint-description-container; }
+  
+  .report-complaint-report-button-container { grid-area: report-complaint-report-button-container; }
+  
