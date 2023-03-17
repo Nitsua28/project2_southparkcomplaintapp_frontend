@@ -1,8 +1,8 @@
 import {takeEvery, put, all} from "@redux-saga/core/effects"
-import { createComplaint, getAllMeetings } from "../api/requests";
+import { createComplaint, getAllMeetings, login } from "../api/requests";
 import { ComplaintFormState } from "../reducers/complaint-form-reducer";
 import { MeetingFormState } from "../reducers/meeting-form-reducer";
-import { RequestCreateComplaint, RequestGetAllComplaints } from "../reducers/south-park-reducer"
+import { LoginForm, RequestLogin, RequestCreateComplaint, RequestGetAllComplaints } from "../reducers/south-park-reducer"
 //worker sagas
 export function* createComplaintByForm(action: RequestCreateComplaint){
 
@@ -28,6 +28,18 @@ export function* getAllMeetingsInfo(){
     }
 }
 
+export function* loginByForm(action: RequestLogin){
+
+    try{
+        
+        const response: boolean = yield login(action.payload);
+        
+        yield put({type:"HANDLE_LOGIN_RESPONSE",payload: response})
+    }catch(e){
+        yield put({type:"ERROR", payload: e, error:true
+        });
+    }
+}
 
 
 //watcher sagas
@@ -37,11 +49,14 @@ export function* watchRequestCreateComplaint(){
 export function* watchRequestGetAllMeetings(){
     yield takeEvery("REQUEST_GET_ALL_MEETINGS",getAllMeetingsInfo)
 }
+export function* watchRequestLogin(){
+    yield takeEvery("REQUEST_LOGIN",loginByForm)
+}
 
 //root saga
 export default function* rootSaga(){
 
-    yield all([watchRequestCreateComplaint(),watchRequestGetAllMeetings()]) // an array of watcher sagas
+    yield all([watchRequestCreateComplaint(),watchRequestGetAllMeetings(),watchRequestLogin()]) // an array of watcher sagas
 
 
 }

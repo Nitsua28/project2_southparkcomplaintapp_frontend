@@ -1,0 +1,65 @@
+.council-member-container {  display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "council-member-meetings-container council-member-complaints-container";
+  }
+  
+  .council-member-meetings-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . ."
+      "council-member-meetings-list-container council-member-meetings-list-container council-member-meetings-list-container"
+      ". . .";
+    grid-area: council-member-meetings-container;
+  }
+  
+  .council-member-meetings-list-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "council-member-meetings-list-header-container council-member-meetings-list-header-container council-member-meetings-list-header-container"
+      "council-member-meetings-list-list-container council-member-meetings-list-list-container council-member-meetings-list-list-container"
+      "council-member-meetings-list-list-container council-member-meetings-list-list-container council-member-meetings-list-list-container";
+    grid-area: council-member-meetings-list-container;
+  }
+  
+  .council-member-meetings-list-header-container { grid-area: council-member-meetings-list-header-container; }
+  
+  .council-member-meetings-list-list-container { grid-area: council-member-meetings-list-list-container; }
+  
+  .council-member-complaints-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . ."
+      "council-member-complaints-list-container council-member-complaints-list-container council-member-complaints-list-container"
+      ". . .";
+    grid-area: council-member-complaints-container;
+  }
+  
+  .council-member-complaints-list-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "council-member-complaints-list-header-container council-member-complaints-list-header-container council-member-complaints-list-header-container"
+      "council-member-complaints-list-list-container council-member-complaints-list-list-container council-member-complaints-list-list-container"
+      "council-member-complaints-list-list-container council-member-complaints-list-list-container council-member-complaints-list-list-container";
+    grid-area: council-member-complaints-list-container;
+  }
+  
+  .council-member-complaints-list-header-container { grid-area: council-member-complaints-list-header-container; }
+  
+  .council-member-complaints-list-list-container { grid-area: council-member-complaints-list-list-container; }
+  

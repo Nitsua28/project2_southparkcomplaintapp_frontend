@@ -2,14 +2,19 @@ import { ComplaintFormState } from "./complaint-form-reducer"
 import { MeetingFormState } from "./meeting-form-reducer";
 import { UserFormState } from "./user-form-reducer";
 
-
+export type LoginForm = {
+    username: String,
+    password: String
+}
 export type SouthParkState = {
+    currentUserId: String
     complaintList: ComplaintFormState[],
     userList: UserFormState[],
     meetingList: MeetingFormState[],
 }
 
 export const initialState: SouthParkState ={
+    currentUserId: "",
     complaintList: [],
     userList: [],
     meetingList: [],
@@ -45,12 +50,16 @@ export type RequestGetAllMeetings = {type: "REQUEST_GET_ALL_MEETINGS"}
 export type RequestEditMeeting = {type: "REQUEST_EDIT_MEETING", payload:MeetingFormState}
 export type RequestDeleteMeeting = {type: "REQUEST_DELETE_MEETING", payload: string}
 
+export type RequestLogin = {type: "REQUEST_LOGIN", payload: LoginForm}
+export type HandleLogin = {type: "HANDLE_LOGIN_RESPONSE", payload: UserFormState}
+
 export type SouthParkActions = AppendUserList | EditUser | RefreshUserList | DeleteUser |
 AppendComplaintList | EditComplaint | RefreshComplaintList | DeleteComplaint |
 AppendMeetingList | EditMeeting | RefreshMeetingList | DeleteMeeting | 
 RequestCreateUser | RequestGetAllUsers | RequestEditUser | RequestDeleteUser |
 RequestCreateComplaint | RequestGetAllComplaints | RequestEditComplaint | RequestDeleteComplaint |
-RequestCreateMeeting | RequestGetAllMeetings | RequestEditMeeting | RequestDeleteMeeting
+RequestCreateMeeting | RequestGetAllMeetings | RequestEditMeeting | RequestDeleteMeeting |
+RequestLogin | HandleLogin
 
 export default function SouthParkReducer(state: SouthParkState = initialState, action: SouthParkActions):SouthParkState{
 
@@ -59,6 +68,10 @@ switch(action.type){
     
     case "REFRESH_MEETING_LIST":{
         nextState.meetingList = action.payload;
+        return nextState
+    }
+    case "HANDLE_LOGIN_RESPONSE":{
+        nextState.currentUserId = action.payload.user_id;
         return nextState
     }
     default:{

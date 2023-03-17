@@ -3,6 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import createSagaMiddleware from 'redux-saga';
+import { CouncilMemberPage } from './pages/council-member-page';
 import { ReportComplaintPage } from './pages/report-complaint-page';
 import { UnregisteredPage } from './pages/unregistered-page';
 import SouthParkReducer from './reducers/south-park-reducer';
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path='/' element={<UnregisteredPage/>}/>
           <Route path='/reportComplaint' element={<ReportComplaintPage/>}></Route>
+          <Route path='/council' element={<CouncilMemberPage/>}></Route>
         </Routes>
       </BrowserRouter>
     </Provider>

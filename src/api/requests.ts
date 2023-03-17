@@ -1,5 +1,7 @@
 import { ComplaintFormState } from "../reducers/complaint-form-reducer";
 import { MeetingFormState } from "../reducers/meeting-form-reducer";
+import { LoginForm } from "../reducers/south-park-reducer";
+import { UserFormState } from "../reducers/user-form-reducer";
 
 
 
@@ -20,4 +22,16 @@ export async function getAllMeetings():Promise<MeetingFormState[]> {
     });
     const meetings : MeetingFormState[] = await httpResponse.json();
     return meetings;
+}
+
+export async function login(params:LoginForm):Promise<UserFormState>{
+    
+    const httpResponse = await fetch("http://localhost:8080/appuser", {
+        method:"PATCH",
+        body:JSON.stringify(params),
+        headers:{"Content-Type":"application/json"}
+    });
+    const response = await httpResponse.json();
+     
+    return response;
 }
