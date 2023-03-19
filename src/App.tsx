@@ -6,6 +6,7 @@ import createSagaMiddleware from 'redux-saga';
 import { CouncilMemberPage } from './pages/council-member-page';
 import { CreateMeetingPage } from './pages/create-meeting-page';
 import { ReportComplaintPage } from './pages/report-complaint-page';
+import { SetPriorityPage } from './pages/set-priority-page';
 import { UnregisteredPage } from './pages/unregistered-page';
 import SouthParkReducer from './reducers/south-park-reducer';
 import rootSaga from './sagas/sagas';
@@ -22,6 +23,7 @@ function App() {
           <Route path='/reportComplaint' element={<ReportComplaintPage/>}></Route>
           <Route path='/council' element={<CouncilMemberPage/>}></Route>
           <Route path='/createMeeting/:complaintid' element={<CreateMeetingPage/>}></Route>
+          <Route path='/setPriority' element={<SetPriorityPage/>}></Route>
         </Routes>
       </BrowserRouter>
     </Provider>

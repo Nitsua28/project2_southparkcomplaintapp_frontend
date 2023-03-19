@@ -44,7 +44,7 @@ export async function getAllComplaints():Promise<ComplaintFormState[]> {
 }
 
 export async function editComplaint(params:ComplaintFormState):Promise<ComplaintFormState> {
-    const httpResponse = await fetch("http://localhost:8080/complaint/" + params.complaint_id, {
+    const httpResponse = await fetch("http://localhost:8080/complaint", {
         method:"PUT",
         body:JSON.stringify(params),
         headers:{"Content-Type":"application/json"}

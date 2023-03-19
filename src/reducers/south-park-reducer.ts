@@ -30,6 +30,7 @@ export type EditComplaint = {type: "EDIT_COMPLAINT", payload:ComplaintFormState}
 export type RefreshComplaintList = {type: "REFRESH_COMPLAINT_LIST", payload:ComplaintFormState[]}
 export type DeleteComplaint = {type: "DELETE_USER", payload:string}
 export type GetComplaintById = {type: "GET_COMPLAINT_BY_ID", payload:string}
+export type SortComplaintList = {type: "SORT_COMPLAINT_LIST"}
 
 export type AppendMeetingList = {type: "APPEND_MEETING_LIST", payload:MeetingFormState}
 export type EditMeeting = {type: "EDIT_MEETING", payload:MeetingFormState}
@@ -56,7 +57,7 @@ export type RequestLogin = {type: "REQUEST_LOGIN", payload: LoginForm}
 export type HandleLogin = {type: "HANDLE_LOGIN_RESPONSE", payload: UserFormState}
 
 export type SouthParkActions = AppendUserList | EditUser | RefreshUserList | DeleteUser |
-AppendComplaintList | EditComplaint | RefreshComplaintList | DeleteComplaint | GetComplaintById |
+AppendComplaintList | EditComplaint | RefreshComplaintList | DeleteComplaint | GetComplaintById | SortComplaintList |
 AppendMeetingList | EditMeeting | RefreshMeetingList | DeleteMeeting | 
 RequestCreateUser | RequestGetAllUsers | RequestEditUser | RequestDeleteUser |
 RequestCreateComplaint | RequestGetAllComplaints | RequestEditComplaint | RequestDeleteComplaint | RequestGetComplaintById |
@@ -85,6 +86,10 @@ switch(action.type){
     }
     case "REFRESH_COMPLAINT_LIST":{
         nextState.complaintList = action.payload;
+        return nextState
+    }
+    case "SORT_COMPLAINT_LIST":{
+        nextState.complaintList.sort((a, b) => Number(a.priority) - Number(b.priority))
         return nextState
     }
     case "HANDLE_LOGIN_RESPONSE":{

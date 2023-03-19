@@ -1,0 +1,29 @@
+.set-priority-container {  display: grid;
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+    grid-template-rows: 0.7fr 1.8fr 0.5fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . ."
+      ". set-priority-list-container ."
+      ". set-priority-back-button-container .";
+  }
+  
+  .set-priority-list-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.6fr 1.1fr 1.3fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "set-priority-header-container set-priority-header-container set-priority-header-container"
+      "set-priority-list-list-container set-priority-list-list-container set-priority-list-list-container"
+      "set-priority-list-list-container set-priority-list-list-container set-priority-list-list-container";
+    grid-area: set-priority-list-container;
+  }
+  
+  .set-priority-header-container { grid-area: set-priority-header-container; }
+  
+  .set-priority-list-list-container { grid-area: set-priority-list-list-container; }
+  
+  .set-priority-back-button-container { grid-area: set-priority-back-button-container; }
+  
