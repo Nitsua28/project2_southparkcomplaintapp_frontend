@@ -1,0 +1,141 @@
+.cmeeting-container {  display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "create-meeting-container";
+  }
+  
+  .create-meeting-container {  display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.7fr 0.3fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "create-meeting-left-column-container create-meeting-right-column-container"
+      "create-meeting-button-container create-meeting-button-container";
+    grid-area: create-meeting-container;
+  }
+  
+  .create-meeting-left-column-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "create-meeting-calendar-container create-meeting-calendar-container create-meeting-calendar-container"
+      "create-meeting-calendar-container create-meeting-calendar-container create-meeting-calendar-container"
+      "create-meeting-add-people-container create-meeting-add-people-container create-meeting-add-people-container";
+    grid-area: create-meeting-left-column-container;
+  }
+  
+  .create-meeting-calendar-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.6fr 1.4fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "create-meeting-calendar-date-container create-meeting-calendar-date-container create-meeting-calendar-date-container"
+      "create-meeting-calendar create-meeting-calendar create-meeting-calendar"
+      "create-meeting-calendar create-meeting-calendar create-meeting-calendar";
+    grid-area: create-meeting-calendar-container;
+  }
+  
+  .create-meeting-calendar-date-container { grid-area: create-meeting-calendar-date-container; }
+  
+  .create-meeting-calendar { grid-area: create-meeting-calendar; }
+  
+  .create-meeting-add-people-container {  display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "create-meeting-attendees-container create-meeting-attendees-container"
+      "create-meeting-speakers-container create-meeting-speakers-container";
+    grid-area: create-meeting-add-people-container;
+  }
+  
+  .create-meeting-attendees-container {  display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "create-meeting-attendees-title-container create-meeting-attendees-input-container"
+      "create-meeting-attendees-title-container create-meeting-attendees-input-container"
+      "create-meeting-attendees-list create-meeting-attendees-list";
+    grid-area: create-meeting-attendees-container;
+  }
+  
+  .create-meeting-attendees-title-container { grid-area: create-meeting-attendees-title-container; }
+  
+  .create-meeting-attendees-input-container { grid-area: create-meeting-attendees-input-container; }
+  
+  .create-meeting-attendees-list { grid-area: create-meeting-attendees-list; }
+  
+  .create-meeting-speakers-container {  display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "create-meeting-speakers-title create-meeting-speakers-input-container"
+      "create-meeting-speakers-title create-meeting-speakers-input-container"
+      "create-meeting-speakers-list create-meeting-speakers-list";
+    grid-area: create-meeting-speakers-container;
+  }
+  
+  .create-meeting-speakers-title { grid-area: create-meeting-speakers-title; }
+  
+  .create-meeting-speakers-input-container { grid-area: create-meeting-speakers-input-container; }
+  
+  .create-meeting-speakers-list { grid-area: create-meeting-speakers-list; }
+  
+  .create-meeting-button-container { grid-area: create-meeting-button-container; }
+  
+  .create-meeting-right-column-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "create-meeting-address-container create-meeting-address-container create-meeting-address-container"
+      "create-meeting-summary-container create-meeting-summary-container create-meeting-summary-container"
+      "create-meeting-summary-container create-meeting-summary-container create-meeting-summary-container";
+    grid-area: create-meeting-right-column-container;
+  }
+  
+  .create-meeting-address-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "create-meeting-address-title-container create-meeting-address-title-container create-meeting-address-title-container"
+      "create-meeting-address-input-container create-meeting-address-input-container create-meeting-address-input-container"
+      "create-meeting-address-input-container create-meeting-address-input-container create-meeting-address-input-container";
+    grid-area: create-meeting-address-container;
+  }
+  
+  .create-meeting-address-title-container { grid-area: create-meeting-address-title-container; }
+  
+  .create-meeting-address-input-container { grid-area: create-meeting-address-input-container; }
+  
+  .create-meeting-summary-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "create-meeting-summary-title-container create-meeting-summary-title-container create-meeting-summary-title-container"
+      "create-meeting-summary-input-container create-meeting-summary-input-container create-meeting-summary-input-container"
+      "create-meeting-summary-input-container create-meeting-summary-input-container create-meeting-summary-input-container";
+    grid-area: create-meeting-summary-container;
+  }
+  
+  .create-meeting-summary-title-container { grid-area: create-meeting-summary-title-container; }
+  
+  .create-meeting-summary-input-container { grid-area: create-meeting-summary-input-container; }
+  

@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { ComplaintFormReducer, ComplaintFormState } from "../reducers/complaint-form-reducer";
@@ -11,14 +11,24 @@ export function ReportComplaintPage(){
         complaint_id: "",
         title: "",
         description: "",
-        status: "",
-        meeting: "",
+        status: "UNFILED",
         priority: ""
     }
 
     const [FormState, dispatchForm] = useReducer(ComplaintFormReducer, initialState);
     const sendDispatch = useDispatch()<SouthParkActions>
 
+    useEffect(()=>{ 
+      
+        (async ()=>{
+            
+            await sendDispatch({type: "REQUEST_GET_ALL_COMPLAINTS"});
+            await sendDispatch({type: "REQUEST_GET_ALL_MEETINGS"});
+            
+        })();
+        
+      },[]);
+      
     function handleClick(){
         console.log(FormState);
         sendDispatch({type: "REQUEST_CREATE_COMPLAINT", payload: FormState})
@@ -36,7 +46,7 @@ export function ReportComplaintPage(){
                 </div>
                 <div className="report-complaint-report-complaint-description-container">
                     <label>Description</label>
-                    <input style={{ width: "100px", height: "100px" }} onChange={(e)=> dispatchForm({type: "UPDATE_DESCRIPTION", payload: e.target.value})}></input>
+                    <textarea style={{ width: "500px", height: "500px" }} onChange={(e)=> dispatchForm({type: "UPDATE_DESCRIPTION", payload: e.target.value})}></textarea>
                 </div>
                 <div className="report-complaint-report-button-container">
                     <button onClick={()=> handleClick()}>Report</button>

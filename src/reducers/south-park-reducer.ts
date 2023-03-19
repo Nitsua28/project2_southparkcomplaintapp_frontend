@@ -7,7 +7,7 @@ export type LoginForm = {
     password: String
 }
 export type SouthParkState = {
-    currentUserId: String
+    currentUserId: String,
     complaintList: ComplaintFormState[],
     userList: UserFormState[],
     meetingList: MeetingFormState[],
@@ -27,8 +27,9 @@ export type DeleteUser = {type: "DELETE_USER", payload:string}
 
 export type AppendComplaintList = {type: "APPEND_COMPLAINT_LIST", payload:ComplaintFormState}
 export type EditComplaint = {type: "EDIT_COMPLAINT", payload:ComplaintFormState}
-export type RefreshComplaintList = {type: "REFRESH_USER_LIST", payload:ComplaintFormState[]}
+export type RefreshComplaintList = {type: "REFRESH_COMPLAINT_LIST", payload:ComplaintFormState[]}
 export type DeleteComplaint = {type: "DELETE_USER", payload:string}
+export type GetComplaintById = {type: "GET_COMPLAINT_BY_ID", payload:string}
 
 export type AppendMeetingList = {type: "APPEND_MEETING_LIST", payload:MeetingFormState}
 export type EditMeeting = {type: "EDIT_MEETING", payload:MeetingFormState}
@@ -41,6 +42,7 @@ export type RequestEditUser = {type: "REQUEST_EDIT_USER", payload:UserFormState}
 export type RequestDeleteUser = {type: "REQUEST_DELETE_USER", payload: string}
 
 export type RequestCreateComplaint = {type: "REQUEST_CREATE_COMPLAINT", payload: ComplaintFormState}
+export type RequestGetComplaintById = {type: "REQUEST_GET_COMPLAINT_BY_ID", payload: string}
 export type RequestGetAllComplaints = {type: "REQUEST_GET_ALL_COMPLAINTS"}
 export type RequestEditComplaint = {type: "REQUEST_EDIT_COMPLAINT", payload:ComplaintFormState}
 export type RequestDeleteComplaint = {type: "REQUEST_DELETE_COMPLAINT", payload: string}
@@ -54,10 +56,10 @@ export type RequestLogin = {type: "REQUEST_LOGIN", payload: LoginForm}
 export type HandleLogin = {type: "HANDLE_LOGIN_RESPONSE", payload: UserFormState}
 
 export type SouthParkActions = AppendUserList | EditUser | RefreshUserList | DeleteUser |
-AppendComplaintList | EditComplaint | RefreshComplaintList | DeleteComplaint |
+AppendComplaintList | EditComplaint | RefreshComplaintList | DeleteComplaint | GetComplaintById |
 AppendMeetingList | EditMeeting | RefreshMeetingList | DeleteMeeting | 
 RequestCreateUser | RequestGetAllUsers | RequestEditUser | RequestDeleteUser |
-RequestCreateComplaint | RequestGetAllComplaints | RequestEditComplaint | RequestDeleteComplaint |
+RequestCreateComplaint | RequestGetAllComplaints | RequestEditComplaint | RequestDeleteComplaint | RequestGetComplaintById |
 RequestCreateMeeting | RequestGetAllMeetings | RequestEditMeeting | RequestDeleteMeeting |
 RequestLogin | HandleLogin
 
@@ -68,6 +70,21 @@ switch(action.type){
     
     case "REFRESH_MEETING_LIST":{
         nextState.meetingList = action.payload;
+        return nextState
+    }
+    case "APPEND_MEETING_LIST": {
+        nextState.meetingList.push(action.payload);
+        return nextState
+    }
+    case "EDIT_COMPLAINT":{
+        const index = nextState.complaintList.findIndex((item)=>item.complaint_id === action.payload.complaint_id)
+        let filteredList = nextState.complaintList.filter((item) => item.complaint_id !== action.payload.complaint_id)
+        filteredList.splice(index,0,action.payload)
+        nextState.complaintList = filteredList;
+        return nextState
+    }
+    case "REFRESH_COMPLAINT_LIST":{
+        nextState.complaintList = action.payload;
         return nextState
     }
     case "HANDLE_LOGIN_RESPONSE":{

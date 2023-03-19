@@ -87,7 +87,7 @@ export function UnregisteredPage(){
                     </div>
                     <div className="unregistered-page-login-button-container">
                     <button type="button" className="" onClick={handleLogin}>
-                            Controlled Popup      
+                            Login     
                     </button>    
                     </div>
                 </div>

@@ -1,3 +1,4 @@
+import { ComplaintsList } from "../components/complaints-list";
 import { MeetingList } from "../components/meeting-list";
 import "../stylesheets/council-member-page-style.css"
 
@@ -17,10 +18,10 @@ export function CouncilMemberPage(){
   <div className="council-member-complaints-container">
     <div className="council-member-complaints-list-container">
       <div className="council-member-complaints-list-header-container">
-
+        <h1>Complaints</h1>
       </div>
       <div className="council-member-complaints-list-list-container">
-
+        <ComplaintsList/>
       </div>
     </div>
   </div>

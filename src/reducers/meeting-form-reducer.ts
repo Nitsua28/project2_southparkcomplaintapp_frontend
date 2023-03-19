@@ -3,6 +3,7 @@ export type MeetingFormState = {
     address: string,
     time: number,
     summary: string,
+    complaint: string
     attendees: string[],
     speakers: string[]
 
@@ -11,12 +12,12 @@ export type MeetingFormState = {
 export type UpdateAddress = {type: "UPDATE_ADDRESS", payload:string}
 export type UpdatePassword = {type: "UPDATE_TIME", payload: number}
 export type UpdateSummary = {type: "UPDATE_SUMMARY", payload: string}
-export type UpdateAttendees = {type: "UPDATE_ATTENDEES", payload: string[]}
-export type UpdateSpeakers = {type: "UPDATE_SPEAKERS", payload: string[]}
+export type AddAttendee = {type: "ADD_ATTENDEE", payload: string}
+export type AddSpeaker = {type: "ADD_SPEAKER", payload: string}
 
-export type MeetingFormActions = UpdateAddress | UpdateSummary | UpdatePassword | UpdateAttendees | UpdateSpeakers
+export type MeetingFormActions = UpdateAddress | UpdateSummary | UpdatePassword | AddAttendee | AddSpeaker
 
-export function UserFormReducer(state: MeetingFormState, action: MeetingFormActions):MeetingFormState{
+export function MeetingFormReducer(state: MeetingFormState, action: MeetingFormActions):MeetingFormState{
 
 const nextState: MeetingFormState = JSON.parse(JSON.stringify(state));
 switch(action.type){
@@ -32,12 +33,12 @@ switch(action.type){
         nextState.summary = action.payload;
         return nextState
     }
-    case "UPDATE_ATTENDEES":{
-        nextState.attendees = action.payload;
+    case "ADD_ATTENDEE":{
+        nextState.attendees.push(action.payload);
         return nextState
     }
-    case "UPDATE_SPEAKERS":{
-        nextState.speakers = action.payload;
+    case "ADD_SPEAKER":{
+        nextState.speakers.push(action.payload);
         return nextState
     }
     

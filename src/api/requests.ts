@@ -15,6 +15,16 @@ export async function createComplaint(params:ComplaintFormState):Promise<Complai
     return complaint;
 }
 
+export async function createMeeting(params:MeetingFormState):Promise<MeetingFormState> {
+    const httpResponse = await fetch("http://localhost:8080/meeting", {
+        method:"POST",
+        body:JSON.stringify(params),
+        headers:{"Content-Type":"application/json"}
+    });
+    const meeting = await httpResponse.json();
+    return meeting;
+}
+
 export async function getAllMeetings():Promise<MeetingFormState[]> {
     const httpResponse = await fetch("http://localhost:8080/meeting", {
         method:"GET",
@@ -22,6 +32,25 @@ export async function getAllMeetings():Promise<MeetingFormState[]> {
     });
     const meetings : MeetingFormState[] = await httpResponse.json();
     return meetings;
+}
+
+export async function getAllComplaints():Promise<ComplaintFormState[]> {
+    const httpResponse = await fetch("http://localhost:8080/complaint", {
+        method:"GET",
+        headers:{"Content-Type":"application/json"}
+    });
+    const complaints : ComplaintFormState[] = await httpResponse.json();
+    return complaints;
+}
+
+export async function editComplaint(params:ComplaintFormState):Promise<ComplaintFormState> {
+    const httpResponse = await fetch("http://localhost:8080/complaint/" + params.complaint_id, {
+        method:"PUT",
+        body:JSON.stringify(params),
+        headers:{"Content-Type":"application/json"}
+    });
+    const complaint : ComplaintFormState = await httpResponse.json();
+    return complaint;
 }
 
 export async function login(params:LoginForm):Promise<UserFormState>{

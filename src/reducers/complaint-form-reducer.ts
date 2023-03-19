@@ -3,7 +3,6 @@ export type ComplaintFormState = {
     title: string,
     description: string,
     status: string,
-    meeting: string,
     priority: string
 }
 
@@ -29,10 +28,6 @@ switch(action.type){
     }
     case "UPDATE_STATUS":{
         nextState.status = action.payload;
-        return nextState
-    }
-    case "UPDATE_MEETING":{
-        nextState.meeting = action.payload;
         return nextState
     }
     case "UPDATE_PRIORITY":{
