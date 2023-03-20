@@ -3,7 +3,11 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { ComplaintFormReducer, ComplaintFormState } from "../reducers/complaint-form-reducer";
 import { SouthParkActions } from "../reducers/south-park-reducer";
+import { LeftVerticalBanner } from "../stylecomponents/left-vertical-banner";
+import { RightVerticalBanner } from "../stylecomponents/right-vertical-banner";
+import { TopBanner } from "../stylecomponents/top-banner";
 import "../stylesheets/report-complaint-page-style.css"
+
 
 export function ReportComplaintPage(){
     const router = useNavigate();
@@ -11,8 +15,8 @@ export function ReportComplaintPage(){
         complaint_id: "",
         title: "",
         description: "",
-        status: "UNFILED",
-        priority: ""
+        status: "complaintNew",
+        priority: "9"
     }
 
     const [FormState, dispatchForm] = useReducer(ComplaintFormReducer, initialState);
@@ -35,23 +39,31 @@ export function ReportComplaintPage(){
         router("/")
     }
     return(
-        <div className="report-complaint-container">
-            <div className="report-complaint-column-container">
-                <div className="report-complaint-header-container">
-                    <h1>Report a Complaint</h1>
-                </div>
-                <div className="report-complaint-title-container">
-                <label>Title</label>
-                    <input onChange={(e)=> dispatchForm({type: "UPDATE_TITLE", payload: e.target.value})}></input>
-                </div>
-                <div className="report-complaint-report-complaint-description-container">
-                    <label>Description</label>
-                    <textarea style={{ width: "500px", height: "500px" }} onChange={(e)=> dispatchForm({type: "UPDATE_DESCRIPTION", payload: e.target.value})}></textarea>
-                </div>
-                <div className="report-complaint-report-button-container">
-                    <button onClick={()=> handleClick()}>Report</button>
+        <>
+            <video src='sunrise.mp4' autoPlay muted/>
+            <LeftVerticalBanner/>
+            <RightVerticalBanner/>
+            <TopBanner/>
+            <div className="report-complaint-parent-container">
+                <div className="report-complaint-container">
+                    <div className="report-complaint-column-container">
+                        <div className="report-complaint-header-container">
+                            <h1>Report a Complaint</h1>
+                        </div>
+                        <div className="report-complaint-title-container">
+                        <label>Title</label>
+                            <input onChange={(e)=> dispatchForm({type: "UPDATE_TITLE", payload: e.target.value})}></input>
+                        </div>
+                        <div className="report-complaint-report-complaint-description-container">
+                            <label>Description</label>
+                            <textarea style={{ width: "500px", height: "500px" }} onChange={(e)=> dispatchForm({type: "UPDATE_DESCRIPTION", payload: e.target.value})}></textarea>
+                        </div>
+                        <div className="report-complaint-report-button-container">
+                            <button onClick={()=> handleClick()}>Report</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

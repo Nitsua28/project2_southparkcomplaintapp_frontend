@@ -11,23 +11,31 @@ export function DropDownPrioritySelector(props:{id:string}){
 
     function handleClick(){
         complaint.priority = selectedOption;
+        if(selectedOption == "0") complaint.status = "complaintIgnored";
+        else complaint.status = "review"
         console.log(complaint)
         sendDispatch({type: "REQUEST_EDIT_COMPLAINT", payload: complaint});
     }
   return (
     <>
-        <select value={selectedOption} onChange={(e)=>setSelectedOption(e.target.value)}>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </select>
-        <button onClick={()=>handleClick()}>Update</button>
+        <th>
+            <select value={selectedOption} onChange={(e)=>setSelectedOption(e.target.value)}>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="0">Ignore</option>
+            </select>
+        </th>
+        <th>
+            <button onClick={()=>handleClick()}>Update</button>
+        </th>
     </>
+    
   );
 }

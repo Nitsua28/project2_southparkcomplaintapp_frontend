@@ -4,6 +4,9 @@ import { Link, useNavigate } from "react-router-dom"
 import Popup from "reactjs-popup"
 import { MeetingList } from "../components/meeting-list"
 import { LoginForm, SouthParkActions, SouthParkState } from "../reducers/south-park-reducer"
+import { LeftVerticalBanner } from "../stylecomponents/left-vertical-banner"
+import { RightVerticalBanner } from "../stylecomponents/right-vertical-banner"
+import { TopBanner } from "../stylecomponents/top-banner"
 import "../stylesheets/unregistered-page-style.css"
 
 
@@ -46,6 +49,13 @@ export function UnregisteredPage(){
         
     }
     return(
+<>
+    <video src='sunrise.mp4' autoPlay muted/>
+    <LeftVerticalBanner/>
+    <RightVerticalBanner/>
+    <TopBanner/>
+    <div className="unregister-page-parent-container">
+        
         <div className="unregister-page-container">
             
             <div className="unregister-page-report-complaint-container">
@@ -93,5 +103,7 @@ export function UnregisteredPage(){
                 </div>
             </div>
         </div>
+    </div>
+</>
     )
 }

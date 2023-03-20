@@ -1,4 +1,23 @@
-.cmeeting-container {  display: grid;
+video{
+  top:0;
+  left:0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -999; /*in the background of everything */
+  
+}
+
+
+.cmeeting-container {  
+  
+  top: 0;
+  background-color: rgba(240, 240, 249, 0.5);
+  width: 100%;
+  height: 1500px;
+  z-index: -555;
+  display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     gap: 0px 0px;
@@ -7,7 +26,13 @@
       "create-meeting-container";
   }
   
-  .create-meeting-container {  display: grid;
+  .create-meeting-container {  
+    flex: 1;
+  margin-top: 200px;
+  margin-left: 400px;
+  margin-right: 400px;
+    
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1.7fr 0.3fr;
     gap: 0px 0px;

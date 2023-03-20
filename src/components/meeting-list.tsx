@@ -18,11 +18,31 @@ export function MeetingList(){
       
     return(
         <>
-            <ul>
-                {selector.meetingList.map(
-                    (item) => <li key={item.meeting_Id}> {item.address} <button>Attend</button></li>
-                    )}
-            </ul>
+            <table>
+                <tr>
+                    <th>Meeting ID</th>
+                    <th>Address</th>
+                    <th>Date</th>
+                    <th>Summary</th>
+                    {/* <th>Complaint title</th> */}
+                    <th>attendees</th>
+                    <th>speakers</th>
+                    <th>attend?</th>
+                </tr>
+                
+                    {selector.meetingList.map(
+                        (item) =>   <tr key={item.meeting_Id}> 
+                                        <td>{item.meeting_Id}</td>
+                                        <td>{item.address}</td>
+                                        <td>{new Date(item.time * 1000).toLocaleString()}</td>
+                                        <td>{item.summary}</td>
+                                        <td>{item.attendees}</td>
+                                        <td>{item.speakers}</td>
+                                        <td><button>Attend</button></td>
+                                    </tr>
+                        )}
+                
+            </table>
         </>
     );
 }

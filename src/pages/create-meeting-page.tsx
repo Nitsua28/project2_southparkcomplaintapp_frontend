@@ -6,6 +6,9 @@ import { MeetingFormReducer, MeetingFormState } from "../reducers/meeting-form-r
 import { useEffect, useReducer, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SouthParkActions, SouthParkState } from "../reducers/south-park-reducer";
+import { LeftVerticalBanner } from "../stylecomponents/left-vertical-banner";
+import { RightVerticalBanner } from "../stylecomponents/right-vertical-banner";
+import { TopBanner } from "../stylecomponents/top-banner";
 export function CreateMeetingPage(){
     const {complaintid} = useParams();
     let initialState: MeetingFormState = {
@@ -47,6 +50,12 @@ export function CreateMeetingPage(){
         router("/council")
     }
     return(
+        <>
+        <video src='sunrise.mp4' autoPlay muted/>
+        <LeftVerticalBanner/>
+        <RightVerticalBanner/>
+        <TopBanner/>
+        
         <div className="cmeeting-container">
             <div className="create-meeting-container">
                 <div className="create-meeting-left-column-container">
@@ -107,6 +116,8 @@ export function CreateMeetingPage(){
                     </div>
                 </div>
             </div>
-        </div>
+        
+    </div>
+    </>
     );
 }
