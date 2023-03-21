@@ -16,7 +16,6 @@ export function CreateMeetingPage(){
         address: "",
         time: Date.now(),
         summary: "",
-        complaint: complaintid as string,
         attendees: [],
         speakers: []
     
@@ -26,6 +25,7 @@ export function CreateMeetingPage(){
         speaker: ""
     });
     const selector = useSelector((store: SouthParkState) => store)
+    const complaint = selector.complaintList.filter((item) =>item.complaint_id.toString() === complaintid as string)[0]
     const [FormState, dispatchForm] = useReducer(MeetingFormReducer, initialState)
     const sendDispatch = useDispatch()<SouthParkActions>
     let date = new Date(FormState.time * 1000)
@@ -43,9 +43,10 @@ export function CreateMeetingPage(){
       },[]);
 
     function handleClick(){
-        
-        FormState.meeting_Id = Math.floor(Math.random()*1000).toString();
-
+        const generatedMeetingId = Math.floor(Math.random()*1000).toString()
+        FormState.meeting_Id = generatedMeetingId;
+        complaint.meeting = generatedMeetingId;
+        sendDispatch({type: "REQUEST_EDIT_COMPLAINT", payload: complaint})
         sendDispatch({type: "REQUEST_CREATE_MEETING", payload: FormState})
         router("/council")
     }

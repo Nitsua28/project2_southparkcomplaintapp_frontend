@@ -16,6 +16,7 @@ export function ReportComplaintPage(){
         title: "",
         description: "",
         status: "complaintNew",
+        meeting: "-1",
         priority: "9"
     }
 

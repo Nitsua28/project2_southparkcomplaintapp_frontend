@@ -3,6 +3,7 @@ export type ComplaintFormState = {
     title: string,
     description: string,
     status: string,
+    meeting: string,
     priority: string
 }
 

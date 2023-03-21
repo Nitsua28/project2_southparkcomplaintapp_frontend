@@ -3,7 +3,6 @@ export type MeetingFormState = {
     address: string,
     time: number,
     summary: string,
-    complaint: string
     attendees: string[],
     speakers: string[]
 
