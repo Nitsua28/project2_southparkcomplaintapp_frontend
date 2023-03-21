@@ -25,8 +25,8 @@ export function MeetingList(){
                     <th>Date</th>
                     <th>Summary</th>
                     {/* <th>Complaint title</th> */}
-                    <th>attendees</th>
-                    <th>speakers</th>
+                    {/* <th>attendees</th>
+                    <th>speakers</th> */}
                     <th>attend?</th>
                 </tr>
                 
@@ -36,8 +36,8 @@ export function MeetingList(){
                                         <td>{item.address}</td>
                                         <td>{new Date(item.time * 1000).toLocaleString()}</td>
                                         <td>{item.summary}</td>
-                                        <td>{item.attendees}</td>
-                                        <td>{item.speakers}</td>
+                                        {/* <td>{item.attendees}</td>
+                                        <td>{item.speakers}</td> */}
                                         <td><button>Attend</button></td>
                                     </tr>
                         )}
