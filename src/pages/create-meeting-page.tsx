@@ -16,8 +16,8 @@ export function CreateMeetingPage(){
         address: "",
         time: Date.now(),
         summary: "",
-        attendees: [],
-        speakers: []
+        // attendees: [],
+        // speakers: []
     
     }
     const [PeopleForm, setPeople] = useState({
@@ -74,11 +74,11 @@ export function CreateMeetingPage(){
                                 <h1>Input Attendee name</h1>
                             </div>
                             <div className="create-meeting-attendees-input-container">
-                                <input onChange={(e)=> {setPeople({...PeopleForm, attendee:e.target.value})}}></input>
-                                <button onClick={()=>dispatchForm({type: "ADD_ATTENDEE", payload: PeopleForm.attendee})}>input</button>
+                                {/* <input onChange={(e)=> {setPeople({...PeopleForm, attendee:e.target.value})}}></input>
+                                <button onClick={()=>dispatchForm({type: "ADD_ATTENDEE", payload: PeopleForm.attendee})}>input</button> */}
                             </div>
                             <div className="create-meeting-attendees-list">
-                                {FormState.attendees}
+                                {/* {FormState.attendees} */}
                             </div>
                         </div>
                         <div className="create-meeting-speakers-container">
@@ -86,11 +86,11 @@ export function CreateMeetingPage(){
                                 <h1>Input Speaker name</h1>
                             </div>
                             <div className="create-meeting-speakers-input-container">
-                                <input onChange={(e)=> {setPeople({...PeopleForm, speaker:e.target.value})}}></input>
-                                <button onClick={()=>dispatchForm({type: "ADD_SPEAKER", payload: PeopleForm.speaker})}>input</button>
+                                {/* <input onChange={(e)=> {setPeople({...PeopleForm, speaker:e.target.value})}}></input>
+                                <button onClick={()=>dispatchForm({type: "ADD_SPEAKER", payload: PeopleForm.speaker})}>input</button> */}
                             </div>
                             <div className="create-meeting-speakers-list">
-                            {FormState.speakers}
+                            {/* {FormState.speakers} */}
                             </div>
                         </div>
                     </div>

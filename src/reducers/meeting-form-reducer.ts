@@ -3,8 +3,8 @@ export type MeetingFormState = {
     address: string,
     time: number,
     summary: string,
-    attendees: string[],
-    speakers: string[]
+    // attendees: string[],
+    // speakers: string[]
 
 }
 
@@ -32,14 +32,14 @@ switch(action.type){
         nextState.summary = action.payload;
         return nextState
     }
-    case "ADD_ATTENDEE":{
-        nextState.attendees.push(action.payload);
-        return nextState
-    }
-    case "ADD_SPEAKER":{
-        nextState.speakers.push(action.payload);
-        return nextState
-    }
+    // case "ADD_ATTENDEE":{
+    //     nextState.attendees.push(action.payload);
+    //     return nextState
+    // }
+    // case "ADD_SPEAKER":{
+    //     nextState.speakers.push(action.payload);
+    //     return nextState
+    // }
     
     
     default:{
