@@ -20,9 +20,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<UnregisteredPage/>}/>
-          <Route path='/reportComplaint' element={<ReportComplaintPage/>}></Route>
+          <Route path='/reportComplaint/:meetingid' element={<ReportComplaintPage/>}></Route>
           <Route path='/council' element={<CouncilMemberPage/>}></Route>
-          <Route path='/createMeeting/:complaintid' element={<CreateMeetingPage/>}></Route>
+          <Route path='/createMeeting' element={<CreateMeetingPage/>}></Route>
           <Route path='/setPriority' element={<SetPriorityPage/>}></Route>
         </Routes>
       </BrowserRouter>

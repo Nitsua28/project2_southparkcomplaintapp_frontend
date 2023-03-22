@@ -7,7 +7,7 @@ import { UserFormState } from "../reducers/user-form-reducer";
 //http://54.202.16.233:8080/appuser
 //http://localhost:8080/complaint
 export async function createComplaint(params:ComplaintFormState):Promise<ComplaintFormState> {
-    const httpResponse = await fetch("http://54.202.16.233:8080/complaint", {
+    const httpResponse = await fetch("http://localhost:8080/complaint", {
         method:"POST",
         body:JSON.stringify(params),
         headers:{"Content-Type":"application/json"}
@@ -17,7 +17,7 @@ export async function createComplaint(params:ComplaintFormState):Promise<Complai
 }
 
 export async function createMeeting(params:MeetingFormState):Promise<MeetingFormState> {
-    const httpResponse = await fetch("http://54.202.16.233:8080/meeting", {
+    const httpResponse = await fetch("http://localhost:8080/meeting", {
         method:"POST",
         body:JSON.stringify(params),
         headers:{"Content-Type":"application/json"}
@@ -27,7 +27,7 @@ export async function createMeeting(params:MeetingFormState):Promise<MeetingForm
 }
 
 export async function getAllMeetings():Promise<MeetingFormState[]> {
-    const httpResponse = await fetch("http://54.202.16.233:8080/meeting", {
+    const httpResponse = await fetch("http://localhost:8080/meeting", {
         method:"GET",
         headers:{"Content-Type":"application/json"}
     });
@@ -36,7 +36,7 @@ export async function getAllMeetings():Promise<MeetingFormState[]> {
 }
 
 export async function getAllComplaints():Promise<ComplaintFormState[]> {
-    const httpResponse = await fetch("http://54.202.16.233:8080/complaint", {
+    const httpResponse = await fetch("http://localhost:8080/complaint", {
         method:"GET",
         headers:{"Content-Type":"application/json"}
     });
@@ -45,7 +45,7 @@ export async function getAllComplaints():Promise<ComplaintFormState[]> {
 }
 
 export async function editComplaint(params:ComplaintFormState):Promise<ComplaintFormState> {
-    const httpResponse = await fetch("http://54.202.16.233:8080/complaint", {
+    const httpResponse = await fetch("http://localhost:8080/complaint", {
         method:"PUT",
         body:JSON.stringify(params),
         headers:{"Content-Type":"application/json"}
@@ -56,7 +56,7 @@ export async function editComplaint(params:ComplaintFormState):Promise<Complaint
 
 export async function login(params:LoginForm):Promise<UserFormState>{
     
-    const httpResponse = await fetch("http://54.202.16.233:8080/appuser", {
+    const httpResponse = await fetch("http://localhost:8080/appuser", {
         method:"PATCH",
         body:JSON.stringify(params),
         headers:{"Content-Type":"application/json"}

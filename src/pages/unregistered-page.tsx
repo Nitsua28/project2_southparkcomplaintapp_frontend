@@ -50,6 +50,25 @@ export function UnregisteredPage(){
     }
     return(
 <>
+    <Popup open={open} closeOnDocumentClick position= 'bottom right' onClose={()=>(store.currentUserId != "") ? router("/council") :closeModal}>        
+        {/* <div className="modal">          
+            <a className="close" onClick={closeModal}>
+                &times;          
+            </a>          
+            {(store.currentUserId != "")  ? <h1>logged in</h1> : <h1>login error</h1>}
+        </div>       */}
+        <div className="modal-container">
+            <div className="modal-content">
+                <a className="close-button" onClick={closeModal}>
+                    &times;          
+                </a>  
+                <h2 className="response-heading">Login Response</h2>
+                {(store.currentUserId != "")  ? <p className="response-message">Your login was successful!</p> : <p className="response-message">Login Error</p>}
+                
+            </div>
+        </div>
+
+    </Popup>   
     <video src='sunrise.mp4' autoPlay muted/>
     <LeftVerticalBanner/>
     <RightVerticalBanner/>
@@ -60,7 +79,7 @@ export function UnregisteredPage(){
             
             <div className="unregister-page-report-complaint-container">
                 <div className="unregister-page-report-complaint-button-container">
-                    <button><Link to="/reportComplaint">Report Complaint</Link></button>
+                    
                 </div>
             </div>
             <div className="unregistered-page-meetings-container">
@@ -79,14 +98,7 @@ export function UnregisteredPage(){
                         <h1>Login</h1>
                         <div>      
                                   
-                            <Popup open={open} closeOnDocumentClick position= 'top left' onClose={()=>(store.currentUserId != "") ? router("/council") :closeModal}>        
-                                <div className="modal">          
-                                    <a className="close" onClick={closeModal}>
-                                        &times;          
-                                    </a>          
-                                    {(store.currentUserId != "")  ? <h1>logged in</h1> : <h1>login error</h1>}
-                                </div>      
-                            </Popup>   
+                            
                         </div>  
                     </div>
                     <div className="unregistered-page-login-username-container">

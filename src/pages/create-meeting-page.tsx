@@ -10,7 +10,7 @@ import { LeftVerticalBanner } from "../stylecomponents/left-vertical-banner";
 import { RightVerticalBanner } from "../stylecomponents/right-vertical-banner";
 import { TopBanner } from "../stylecomponents/top-banner";
 export function CreateMeetingPage(){
-    const {complaintid} = useParams();
+    //const {complaintid} = useParams();
     let initialState: MeetingFormState = {
         meeting_Id: "",
         address: "",
@@ -25,7 +25,7 @@ export function CreateMeetingPage(){
         speaker: ""
     });
     const selector = useSelector((store: SouthParkState) => store)
-    const complaint = selector.complaintList.filter((item) =>item.complaint_id.toString() === complaintid as string)[0]
+    //const complaint = selector.complaintList.filter((item) =>item.complaint_id.toString() === complaintid as string)[0]
     const [FormState, dispatchForm] = useReducer(MeetingFormReducer, initialState)
     const sendDispatch = useDispatch()<SouthParkActions>
     let date = new Date(FormState.time * 1000)
@@ -45,8 +45,8 @@ export function CreateMeetingPage(){
     function handleClick(){
         const generatedMeetingId = Math.floor(Math.random()*1000).toString()
         FormState.meeting_Id = generatedMeetingId;
-        complaint.meeting = generatedMeetingId;
-        sendDispatch({type: "REQUEST_EDIT_COMPLAINT", payload: complaint})
+        //complaint.meeting = generatedMeetingId;
+        //sendDispatch({type: "REQUEST_EDIT_COMPLAINT", payload: complaint})
         sendDispatch({type: "REQUEST_CREATE_MEETING", payload: FormState})
         router("/council")
     }

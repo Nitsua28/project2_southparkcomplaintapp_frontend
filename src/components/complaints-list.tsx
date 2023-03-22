@@ -33,7 +33,7 @@ export function ComplaintsList(){
                     <th>Description</th>
                     <th>Status</th>
                     <th>Priority</th>
-                    <th>Create meeting?</th>
+                    {/* <th>Create meeting?</th> */}
                 </tr>
                 {selector.complaintList.map(
                     (item) =>   <tr key={item.complaint_id}> 
@@ -42,7 +42,7 @@ export function ComplaintsList(){
                                     <th>{item.description}</th>
                                     <th>{item.status}</th>
                                     <th>{(item.priority.toString() === "0") ? (<div>ignored</div>) : item.priority}</th> 
-                                    <th><button onClick={() =>router("/createMeeting/" + item.complaint_id)}>Create Meeting</button></th>
+                                    {/* <th><button onClick={() =>router("/createMeeting/" + item.complaint_id)}>Create Meeting</button></th> */}
                                 </tr>
                     )}
             </table>

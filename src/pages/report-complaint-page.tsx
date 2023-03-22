@@ -1,6 +1,6 @@
 import { useEffect, useReducer, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { ComplaintFormReducer, ComplaintFormState } from "../reducers/complaint-form-reducer";
 import { SouthParkActions } from "../reducers/south-park-reducer";
 import { LeftVerticalBanner } from "../stylecomponents/left-vertical-banner";
@@ -10,13 +10,14 @@ import "../stylesheets/report-complaint-page-style.css"
 
 
 export function ReportComplaintPage(){
+    const {meetingid} = useParams();
     const router = useNavigate();
     const initialState: ComplaintFormState = {
         complaint_id: "",
         title: "",
         description: "",
         status: "complaintNew",
-        meeting: "-1",
+        meeting: meetingid as string,
         priority: "9"
     }
 
@@ -35,13 +36,13 @@ export function ReportComplaintPage(){
       },[]);
       
     function handleClick(){
-        console.log(FormState);
+        
         sendDispatch({type: "REQUEST_CREATE_COMPLAINT", payload: FormState})
         router("/")
     }
     return(
         <>
-            <video src='sunrise.mp4' autoPlay muted/>
+            <video src='/sunrise.mp4' autoPlay muted/>
             <LeftVerticalBanner/>
             <RightVerticalBanner/>
             <TopBanner/>

@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { SouthParkActions, SouthParkState } from "../reducers/south-park-reducer";
 
 export function MeetingList(){
+    const router = useNavigate();
     const selector = useSelector((store: SouthParkState) => store)
     const sendDispatch = useDispatch()<SouthParkActions>
 
@@ -28,6 +30,7 @@ export function MeetingList(){
                     {/* <th>attendees</th>
                     <th>speakers</th> */}
                     <th>attend?</th>
+                    <th>Report complaint to Meeting</th>
                 </tr>
                 
                     {selector.meetingList.map(
@@ -39,6 +42,7 @@ export function MeetingList(){
                                         {/* <td>{item.attendees}</td>
                                         <td>{item.speakers}</td> */}
                                         <td><button>Attend</button></td>
+                                        <td><button onClick={()=>router("/reportComplaint/" + item.meeting_Id)}>report</button></td>
                                     </tr>
                         )}
                 

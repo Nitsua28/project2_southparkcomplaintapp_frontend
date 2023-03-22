@@ -55,6 +55,7 @@ export type RequestDeleteMeeting = {type: "REQUEST_DELETE_MEETING", payload: str
 
 export type RequestLogin = {type: "REQUEST_LOGIN", payload: LoginForm}
 export type HandleLogin = {type: "HANDLE_LOGIN_RESPONSE", payload: UserFormState}
+export type HandleLogout = {type: "HANDLE_LOGOUT"}
 
 export type SouthParkActions = AppendUserList | EditUser | RefreshUserList | DeleteUser |
 AppendComplaintList | EditComplaint | RefreshComplaintList | DeleteComplaint | GetComplaintById | SortComplaintList |
@@ -62,7 +63,7 @@ AppendMeetingList | EditMeeting | RefreshMeetingList | DeleteMeeting |
 RequestCreateUser | RequestGetAllUsers | RequestEditUser | RequestDeleteUser |
 RequestCreateComplaint | RequestGetAllComplaints | RequestEditComplaint | RequestDeleteComplaint | RequestGetComplaintById |
 RequestCreateMeeting | RequestGetAllMeetings | RequestEditMeeting | RequestDeleteMeeting |
-RequestLogin | HandleLogin
+RequestLogin | HandleLogin | HandleLogout
 
 export default function SouthParkReducer(state: SouthParkState = initialState, action: SouthParkActions):SouthParkState{
 
@@ -94,6 +95,10 @@ switch(action.type){
     }
     case "HANDLE_LOGIN_RESPONSE":{
         nextState.currentUserId = action.payload.user_id;
+        return nextState
+    }
+    case "HANDLE_LOGOUT":{
+        nextState.currentUserId = "";
         return nextState
     }
     default:{
